@@ -4,10 +4,11 @@ import coffeeAndCodeSVG04 from '../imgs/coffee_and_code_image_04.jpg';
 
 // Global variables for  our repeating 
 // css values
-export const PRIMARY_COLOR = 'rgb(51,80,117)';
-export const SECONDARY_COLOR = '#FFF';
 export const NAVIGATION_HEIGHT = '80px';
-export const FOOTER_HEIGHT = '40px';
+const PRIMARY_COLOR = 'rgb(51,80,117)';
+const SECONDARY_COLOR = '#FFF';
+const FOOTER_HEIGHT = '40px';
+const DEFAULT_FONT_WEIGHT = 300;
 
 // Creates a container for our Navigation
 export const Navbar = styled(Flex) `
@@ -25,9 +26,9 @@ export const NavbarItems = styled(Flex) `
 `;
 
 // Create a global title container
-export const Title = styled(Flex) `
+export const Title = styled.h1 `
     font-size:32px;
-    font-weight:500;
+    font-weight:${DEFAULT_FONT_WEIGHT};
     display:flex;
     height:auto;
     align-items:center;
@@ -56,7 +57,7 @@ export const SectionImage = styled(Flex) `
 
 export const SectionHeader = styled.h1 `
     display:flex;
-    font-weight:300;
+    font-weight:${DEFAULT_FONT_WEIGHT};
     height:auto;
     justify-content:center;
     width:100%;
@@ -64,19 +65,20 @@ export const SectionHeader = styled.h1 `
 `;
 
 export const MenuItemsContainer = styled(Flex) `
-    display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
     width:100%;
-    height:200px;
+    height:auto;
+    padding:16px 0;
     position:absolute;
     top:${NAVIGATION_HEIGHT};
     background-color:${PRIMARY_COLOR};
 `;
 
-export const MenuItems = styled(Flex) `
+export const MenuItems = styled.h2 `
     height:20%;
+    font-weight:${DEFAULT_FONT_WEIGHT};
     width:40%;
     display:flex;
     justify-content:center;
