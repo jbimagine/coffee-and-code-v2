@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Flex } from '../ui_kit/Flex';
+import { Image } from '../ui_kit/Image';
 import coffeeAndCodeSVG04 from '../imgs/coffee_and_code_image_04.jpg';
 
 // Global variables for  our repeating 
@@ -62,6 +63,10 @@ export const SectionHeader = styled.h1 `
     justify-content:center;
     width:100%;
     z-index:2;
+`;
+
+export const MenuIcon = styled(Image) `
+    cursor:pointer;
 `;
 
 export const MenuItemsContainer = styled(Flex) `
