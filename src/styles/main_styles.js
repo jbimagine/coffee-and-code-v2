@@ -45,6 +45,7 @@ export const Section = styled(Flex) `
     color: ${ props => props.color?PRIMARY_COLOR:SECONDARY_COLOR };
 `;
 
+// Creates a  background image for our Sections
 export const SectionImage = styled(Flex) `
     height:100%;
     width:100vw;
@@ -56,6 +57,7 @@ export const SectionImage = styled(Flex) `
     opacity:${ props => props.opacity };
 `;
 
+//  Creates the main header title for our Sections 
 export const SectionHeader = styled.h1 `
     display:flex;
     font-weight:${DEFAULT_FONT_WEIGHT};
@@ -65,10 +67,20 @@ export const SectionHeader = styled.h1 `
     z-index:2;
 `;
 
+// Creates a wrapper for styling purposes for our
+// menu icon
+export const MenuIconContainer = styled(Flex) `
+    height:100%;
+    justify-content:center;
+    align-items:center;
+`;
+
+// Styling for our Menu Icon
 export const MenuIcon = styled(Image) `
     cursor:pointer;
 `;
 
+// Container for all of the menu items in the navigatation
 export const MenuItemsContainer = styled(Flex) `
     flex-direction:column;
     justify-content:center;
@@ -81,6 +93,7 @@ export const MenuItemsContainer = styled(Flex) `
     background-color:${PRIMARY_COLOR};
 `;
 
+// Contains each individual menu item
 export const MenuItems = styled.h2 `
     height:20%;
     font-weight:${DEFAULT_FONT_WEIGHT};
@@ -111,6 +124,7 @@ export const FooterContainer = styled(Flex) `
     background-color: ${ PRIMARY_COLOR };
 `;
 
+// Styling for the footer items in the container
 export const FooterItems = styled(Flex) `
     width:100%;
     padding:0 16px;

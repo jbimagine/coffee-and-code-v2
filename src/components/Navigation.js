@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarItems, MenuItems, MenuItemsContainer, Title, MenuIcon } from '../styles/main_styles';
+import { Navbar, NavbarItems, MenuItems, MenuIconContainer, MenuItemsContainer, Title, MenuIcon } from '../styles/main_styles';
 import closeIconSVG from '../imgs/close_icon.svg';
 import menuIconSVG from '../imgs/menu_icon.svg';
 
@@ -11,11 +11,13 @@ export default class Navigation extends Component {
        <Navbar>
            <NavbarItems>
            <Title>Coffee & Code</Title>
-           <MenuIcon 
-            src = { this.props.isMenuOpen?closeIconSVG:menuIconSVG } 
-            alt = { this.props.isMenuOpen?'close icon':'menu icon' }  
-            onClick = { ()=>{ this.props.handleMenuState(); } }
-          />
+           <MenuIconContainer>
+            <MenuIcon 
+              src = { this.props.isMenuOpen?closeIconSVG:menuIconSVG } 
+              alt = { this.props.isMenuOpen?'close icon':'menu icon' }  
+              onClick = { ()=>{ this.props.handleMenuState(); } }
+            />
+           </MenuIconContainer>
            </NavbarItems>
           { 
             this.props.isMenuOpen&&<MenuItemsContainer>
