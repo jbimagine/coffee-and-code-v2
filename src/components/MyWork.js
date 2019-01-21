@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { Section } from '../styles/main_styles';
+import { Section, SectionHeader } from '../styles/main_styles';
 
 export default class MyWork extends Component {
   render() {
     return (
       <>
-        <Section></Section>
+        <Section>
+        <SectionHeader>{this.props.title}</SectionHeader>
+        </Section>
       </>
     );
   }

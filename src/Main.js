@@ -43,9 +43,15 @@ export default class Main extends Component {
             sectionHeaders = { this.state.sectionHeaders }
         />
         <Home/>
-        <MyWork/>
-        <About/>
-        <Contact/>
+        <MyWork
+            title = { 'My Work' }
+        />
+        <About
+            title = { 'About' }
+        />
+        <Contact
+            title = { ' Contact' }
+        />
         <Footer/>
       </>
     );

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Flex } from '../ui_kit/Flex';
+import coffeeAndCodeSVG04 from '../imgs/coffee_and_code_image_04.jpg';
 
 // Global variables for  our repeating 
 // css values
@@ -14,6 +15,7 @@ export const Navbar = styled(Flex) `
     position:fixed;
     width:100vw;
     background-color:${ PRIMARY_COLOR };
+    z-index: 5;
 `;
 export const NavbarItems = styled(Flex) `
     display:flex;
@@ -37,6 +39,28 @@ export const Section = styled(Flex) `
     height:${ props => props.Home?'100vh':`calc(100vh - ${NAVIGATION_HEIGHT})` };
     width:100vw;
     background-color: ${ props => props.theme.main };
+    position:relative;
+    color: ${ props => props.theme.secondary };
+`;
+
+export const SectionImage = styled(Flex) `
+    height:100%;
+    width:100vw;
+    position:absolute;
+    background-image: ${ props => props.backgroundImage?props.backgroundImage:null };
+    background-size: ${ props => props.backgroundImage?'cover':null };
+    background-repeat: ${ props => props.backgroundImage?'no-repeat':null };
+    background-position:${ props => props.backgroundImage?'center':null };
+    opacity:${ props => props.opacity };
+`;
+
+export const SectionHeader = styled.h1 `
+    display:flex;
+    font-weight:300;
+    height:auto;
+    justify-content:center;
+    width:100%;
+    z-index:2;
 `;
 
 export const MenuItemsContainer = styled(Flex) `
