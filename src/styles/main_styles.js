@@ -5,7 +5,7 @@ import coffeeAndCodeSVG04 from '../imgs/coffee_and_code_image_04.jpg';
 
 // Global variables for  our repeating 
 // css values
-export const NAVIGATION_HEIGHT = '80px';
+export const NAVIGATION_HEIGHT = 80;
 const PRIMARY_COLOR = 'rgb(51,80,117)';
 const SECONDARY_COLOR = '#FFF';
 const FOOTER_HEIGHT = '40px';
@@ -13,7 +13,7 @@ const DEFAULT_FONT_WEIGHT = 300;
 
 // Creates a container for our Navigation
 export const Navbar = styled(Flex) `
-    height:${ NAVIGATION_HEIGHT };
+    height:${ NAVIGATION_HEIGHT }px;
     position:fixed;
     width:100vw;
     background-color:${ PRIMARY_COLOR };
@@ -38,7 +38,7 @@ export const Title = styled.h1 `
 // Creates a Section Container for each repeating section 
 // of the site E.g. Home, About, My Work, etc
 export const Section = styled(Flex) `
-    height:${ props => props.Home?'100vh':`calc(100vh - ${NAVIGATION_HEIGHT})` };
+    height:${ props => props.Home?'100vh':`calc(100vh - ${NAVIGATION_HEIGHT}px)` };
     width:100vw;
     background-color: ${ props => props.theme.main };
     position:relative;
@@ -89,7 +89,9 @@ export const MenuItemsContainer = styled(Flex) `
     height:auto;
     padding:16px 0;
     position:absolute;
-    top:${NAVIGATION_HEIGHT};
+    // Setting the total height minus 1px to ensure that there is no gap 
+    // between the nav and its menu
+    top:${NAVIGATION_HEIGHT - 1}px;
     background-color:${PRIMARY_COLOR};
 `;
 
