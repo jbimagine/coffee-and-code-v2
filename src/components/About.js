@@ -5,7 +5,7 @@ export default class About extends Component {
   render() {
     return (
       <>
-        <Section Home theme={secondary}>
+        <Section color='true' theme={secondary}>
         <SectionHeader>{this.props.title}</SectionHeader>
         </Section>     
       </>

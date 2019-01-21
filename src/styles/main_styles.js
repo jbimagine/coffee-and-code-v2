@@ -7,7 +7,7 @@ import coffeeAndCodeSVG04 from '../imgs/coffee_and_code_image_04.jpg';
 export const PRIMARY_COLOR = 'rgb(51,80,117)';
 export const SECONDARY_COLOR = '#FFF';
 export const NAVIGATION_HEIGHT = '80px';
-export const FOOTER_HEIGHT = '80px';
+export const FOOTER_HEIGHT = '40px';
 
 // Creates a container for our Navigation
 export const Navbar = styled(Flex) `
@@ -40,7 +40,7 @@ export const Section = styled(Flex) `
     width:100vw;
     background-color: ${ props => props.theme.main };
     position:relative;
-    color: ${ props => props.theme.secondary };
+    color: ${ props => props.color?PRIMARY_COLOR:SECONDARY_COLOR };
 `;
 
 export const SectionImage = styled(Flex) `
