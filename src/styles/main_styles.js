@@ -110,3 +110,10 @@ export const FooterContainer = styled(Flex) `
     height: ${ FOOTER_HEIGHT };
     background-color: ${ PRIMARY_COLOR };
 `;
+
+export const FooterItems = styled(Flex) `
+    width:100%;
+    padding:0 16px;
+    justify-content:space-between;
+    align-items:center;
+`;

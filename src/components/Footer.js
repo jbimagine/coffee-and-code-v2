@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
-import { FooterContainer } from '../styles/main_styles';
+import { FooterContainer, FooterItems } from '../styles/main_styles';
 
 export default class Footer extends Component {
   render() {
     return (
       <>
-        <FooterContainer></FooterContainer>
+        <FooterContainer>
+          <FooterItems>
+            <div>&copy; 2019 Jbimagine Studios</div>
+            <div>Joe Bates</div>
+          </FooterItems>
+        </FooterContainer>
       </>
     );
   }
