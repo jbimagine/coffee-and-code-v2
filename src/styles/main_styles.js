@@ -1,13 +1,31 @@
 import styled from 'styled-components';
 import { Flex } from '../ui_kit/Flex';
 import { Image } from '../ui_kit/Image';
-import coffeeAndCodeSVG04 from '../imgs/coffee_and_code_image_04.jpg';
+import { css } from 'styled-components';
+
+// Set the queries for the different media sizes
+export const sizes = {
+    desktop: 1440,
+    tablet: 1024,
+    phone: 650,
+    phoneSmall: 400,
+};
+
+export const media = Object.keys(sizes).reduce((acc, label) => {
+    acc[label] = (...args) => css`
+      @media (max-width: ${sizes[label] / 16}em) {
+        ${css(...args)}
+      }
+    `
+  
+    return acc
+  }, {})
 
 // Global variables for  our repeating 
 // css values
 export const NAVIGATION_HEIGHT = 80;
-const PRIMARY_COLOR = 'rgb(51,80,117)';
-const SECONDARY_COLOR = '#FFF';
+export const PRIMARY_COLOR = 'rgb(51,80,117)';
+export const SECONDARY_COLOR = '#FFF';
 const FOOTER_HEIGHT = '40px';
 const DEFAULT_FONT_WEIGHT = 300;
 
@@ -39,6 +57,7 @@ export const Title = styled.h1 `
 // of the site E.g. Home, About, My Work, etc
 export const Section = styled(Flex) `
     height:${ props => props.Home?'100vh':`calc(100vh - ${NAVIGATION_HEIGHT}px)` };
+    flex-direction:column;
     width:100vw;
     background-color: ${ props => props.theme.main };
     position:relative;
@@ -53,7 +72,7 @@ export const SectionImage = styled(Flex) `
     background-image: ${ props => props.backgroundImage?props.backgroundImage:null };
     background-size: ${ props => props.backgroundImage?'cover':null };
     background-repeat: ${ props => props.backgroundImage?'no-repeat':null };
-    background-position:${ props => props.backgroundImage?'center':null };
+    background-position:${ props => props.backgroundImage&&props.position };
     opacity:${ props => props.opacity };
 `;
 
@@ -65,6 +84,7 @@ export const SectionHeader = styled.h1 `
     justify-content:center;
     width:100%;
     z-index:2;
+    position:absolute;
 `;
 
 // Creates a wrapper for styling purposes for our

@@ -11,6 +11,7 @@ export default class Contact extends Component {
           <SectionImage
             backgroundImage = { `url(${ coffeeAndCodeSVG07 })` }
             opacity = { 0.25 }
+            position = 'center'
           />
         </Section>     
       </>

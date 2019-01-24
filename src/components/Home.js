@@ -7,9 +7,9 @@ export default class Home extends Component {
   render() {
     return (
       <>
-        <Section Home theme={secondary}>
+        <Section Home theme={secondary} >
         <SectionHeader>{this.props.title}</SectionHeader>
-      <SectionImage backgroundImage = { `url(${ coffeeAndCodeSVG04 })` }/>
+      <SectionImage backgroundImage = { `url(${ coffeeAndCodeSVG04 })`} position = 'center'/>
           
         </Section>
       </>
