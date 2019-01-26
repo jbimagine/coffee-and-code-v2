@@ -109,7 +109,7 @@ export const ClipBox = styled(Flex) `
   background-color:${GREY_COLOR};
   top:1px;
   position:relative;
-  height:60px;
+  height:${NAVIGATION_HEIGHT}px;
   clip-path:polygon(
   0 0, /* left top */
   100% 99%, /* right top */ 
