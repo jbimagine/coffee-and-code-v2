@@ -43,11 +43,10 @@ export default class Main extends Component {
             sectionHeaders = { this.state.sectionHeaders }
         />
         <Home/>
+        <About
+        />
         <MyWork
             title = { 'My Work' }
-        />
-        <About
-            title = { 'About' }
         />
         <Contact
             title = { ' Contact' }

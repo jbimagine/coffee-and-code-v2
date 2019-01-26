@@ -25,23 +25,24 @@ export const media = Object.keys(sizes).reduce((acc, label) => {
 // css values
 export const NAVIGATION_HEIGHT = 80;
 export const PRIMARY_COLOR = 'rgb(51,80,117)';
-export const SECONDARY_COLOR = '#FFF';
+export const WHITE_COLOR = '#FFF';
+const DARK_COLOR_TRANSPARENT = '#00000090';
+const DARK_COLOR = '#000000';
 const FOOTER_HEIGHT = '40px';
-const DEFAULT_FONT_WEIGHT = 300;
+const DEFAULT_FONT_WEIGHT = 200;
 
 // Creates a container for our Navigation
 export const Navbar = styled(Flex) `
     height:${ NAVIGATION_HEIGHT }px;
     position:fixed;
     width:100vw;
-    background-color:${ PRIMARY_COLOR };
     z-index: 5;
 `;
 export const NavbarItems = styled(Flex) `
-    display:flex;
     justify-content:space-between;
     width:100%;
     padding:0 16px;
+    z-index:5;
 `;
 
 // Create a global title container
@@ -53,15 +54,28 @@ export const Title = styled.h1 `
     align-items:center;
 `;
 
+const CLIP_PATH_DEFAULT = `polygon(
+    0 0, /* left top */
+    100% 0, /* right top */ 
+    100% calc(100% - 10vw), /* right bottom */
+    0 100% /* left bottom */
+  )`;
+
 // Creates a Section Container for each repeating section 
 // of the site E.g. Home, About, My Work, etc
 export const Section = styled(Flex) `
-    height:${ props => props.Home?'100vh':`calc(100vh - ${NAVIGATION_HEIGHT}px)` };
+    height:${ props => props.Home?'100vh':props.height};
     flex-direction:column;
     width:100vw;
     background-color: ${ props => props.theme.main };
     position:relative;
-    color: ${ props => props.color?PRIMARY_COLOR:SECONDARY_COLOR };
+    color: ${ props => props.color?DARK_COLOR:WHITE_COLOR };
+    clip-path: ${ props => props.clipPath?props.clipPath: CLIP_PATH_DEFAULT};
+`;
+
+export const SectionContent = styled(Flex) `
+    padding:0 48px;
+    flex-direction:column;
 `;
 
 // Creates a  background image for our Sections
@@ -77,14 +91,13 @@ export const SectionImage = styled(Flex) `
 `;
 
 //  Creates the main header title for our Sections 
-export const SectionHeader = styled.h1 `
-    display:flex;
+export const SectionHeader = styled(Flex) `
     font-weight:${DEFAULT_FONT_WEIGHT};
     height:auto;
-    justify-content:center;
     width:100%;
     z-index:2;
-    position:absolute;
+    font-size:${ props => props.fontSize };
+    position:relative;
 `;
 
 // Creates a wrapper for styling purposes for our
@@ -98,6 +111,7 @@ export const MenuIconContainer = styled(Flex) `
 // Styling for our Menu Icon
 export const MenuIcon = styled(Image) `
     cursor:pointer;
+    z-index:10;
 `;
 
 // Container for all of the menu items in the navigatation
@@ -106,13 +120,13 @@ export const MenuItemsContainer = styled(Flex) `
     justify-content:center;
     align-items:center;
     width:100%;
-    height:auto;
+    height:100vh;
     padding:16px 0;
     position:absolute;
     // Setting the total height minus 1px to ensure that there is no gap 
     // between the nav and its menu
-    top:${NAVIGATION_HEIGHT - 1}px;
-    background-color:${PRIMARY_COLOR};
+    z-index:2;
+    background-color ${DARK_COLOR_TRANSPARENT};
 `;
 
 // Contains each individual menu item
@@ -129,13 +143,13 @@ export const MenuItems = styled.h2 `
 // and our secondary, or tertiary and so on if needed
 Section.defaultProps = {
     theme: {
-        main: PRIMARY_COLOR,
+        main: DARK_COLOR,
     }
 };
 
 // Set our secondary color
 export const secondary = {
-    main: SECONDARY_COLOR,
+    main: WHITE_COLOR,
 };
 
 // Creates a Footer Container
