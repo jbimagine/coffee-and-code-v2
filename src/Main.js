@@ -27,33 +27,57 @@ export default class Main extends Component {
                 name:'Contact',
                 key:'contact',
             },
-        ]
+        ],
+        isScrollHeight100vh:false,
+        width: window.innerWidth,
+        height: window.innerHeight,
     }
+
+    componentDidMount() {
+        // On load and resize, mount the function to get 
+        // the height and width of the browser window
+        window.addEventListener('load', this.handleResize);
+        window.addEventListener('resize', this.handleResize);
+      }
+    
+      componentWillUnmount() {
+        // Unmounts the function to get the height and width
+        // of the browser window
+        window.addEventListener('load', this.handleResize);
+        window.removeEventListener('resize', this.handleResize );
+      }
 
     handleMenuState = () => {
         this.setState({ isMenuOpen:!this.state.isMenuOpen });
     }
 
-  render() {
-    return (
-      <>
-        <Navigation
-            handleMenuState = { this.handleMenuState }
-            isMenuOpen = { this.state.isMenuOpen }
-            sectionHeaders = { this.state.sectionHeaders }
-        />
-        <Home/>
-        <About
-        />
-        <MyWork
-            title = { 'My Work' }
-        />
-        <Contact
-            title = { ' Contact' }
-        />
-        <Footer/>
-      </>
-    );
-  }
+    // Get the current window height and width 
+    handleResize = () => {
+        this.setState({ width: window.innerWidth, height: window.innerHeight });
+        console.log(this.state.height, this.state.width);
+    }
+
+    render() {
+        return (
+        <>
+            <Navigation
+                handleMenuState = { this.handleMenuState }
+                isMenuOpen = { this.state.isMenuOpen }
+                sectionHeaders = { this.state.sectionHeaders }
+                isScrollHeight100vh = { this.state.isScrollHeight100vh }
+            />
+            <Home/>
+            <About
+            />
+            <MyWork
+                title = { 'My Work' }
+            />
+            <Contact
+                title = { ' Contact' }
+            />
+            <Footer/>
+        </>
+        );
+    }
 }
 
