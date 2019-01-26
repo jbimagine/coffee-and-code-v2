@@ -24,11 +24,38 @@ const AboutContentContainer = styled(Flex) `
   z-index:2;
 `;
 
-const Content = styled(Flex) `
-line-height:${ props => props.lineHeight?props.lineHeight: '48px' };
+const MainContent = styled(Flex) `
 font-weight:200;
-padding-bottom:24px;
+padding:24px 0;
+font-size:48px;
+
+${ media.phone `
+  font-size:24px;
+  line-height:36px;
+`}
+
+`;
+
+const Content = styled(MainContent) `
+line-height:${ props => props.lineHeight?props.lineHeight: '48px' };
 font-size: ${ props => props.fontSize?props.fontSize:'32px' };
+
+&:last-child {
+  padding:0 0 24px;
+}
+
+${ media.phone`
+    font-size:18px;
+    line-height: 32px;
+    `}
+`;
+
+const AboutSection = styled(SectionHeader) `
+  font-size:72px;
+  ${media.phone `
+    font-size:48px;
+    word-break: break-all;
+  `}
 `;
 
 export default class About extends Component {
@@ -37,17 +64,15 @@ export default class About extends Component {
       <>
         <Section color='true' theme={secondary} height={ `calc(100% -${NAVIGATION_HEIGHT})`} clipPath='none'>
         <SectionContent>
-          <SectionHeader fontSize='72px'>
-            <div>
+          <AboutSection fontWeight= '400'>
             Front End. <br /> Design. <br/> Development. 
-            </div>
-          </SectionHeader>
+          </AboutSection>
           <AboutContentContainer>
-          <Content fontSize='48px' lineHeight = '60px'>
-          Hi, I'm Joe Bates.  I am a Software 
+          <MainContent>
+          Hi, I'm Joe Bates!  I am a Software 
           Designer & Developer focused on Design, Responsive Web Development,
           and Front-End technologies
-          </Content>
+          </MainContent>
           <Content>
             I currently live and work in San Francisco, CA where I am a Software Engineer for one of the leading 
             Interior Designing companies, Modsy.  I am also the creator of the Youtube channel Coffee & Code sharing
