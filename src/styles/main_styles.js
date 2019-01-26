@@ -76,7 +76,7 @@ export const Section = styled(Flex) `
 `;
 
 export const SectionContent = styled(Flex) `
-    padding:0 36px;
+    padding:24px 36px;    
     flex-direction:column;
 `;
 
@@ -95,7 +95,7 @@ export const SectionImage = styled(Flex) `
 //  Creates the main header title for our Sections 
 export const SectionHeader = styled(Flex) `
     font-weight:${ props => props.fontWeight?props.fontWeight:DEFAULT_FONT_WEIGHT };
-    padding: 16px 0 0;
+    padding: 24px 0 0;
     height:auto;
     width:100%;
     z-index:2;

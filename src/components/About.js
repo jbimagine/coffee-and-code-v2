@@ -62,7 +62,7 @@ export default class About extends Component {
   render() {
     return (
       <>
-        <Section color='true' theme={secondary} height={ `calc(100% -${NAVIGATION_HEIGHT})`} clipPath='none'>
+        <Section color='true' theme={secondary} height={ `calc(100% - ${NAVIGATION_HEIGHT}px)`} clipPath='none'>
         <SectionContent>
           <AboutSection fontWeight= '400'>
             Front End. <br /> Design. <br/> Development. 
