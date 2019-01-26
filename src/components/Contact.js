@@ -1,18 +1,12 @@
 import React, { Component } from 'react';
-import { Section, SectionImage, SectionHeader, NAVIGATION_HEIGHT } from '../styles/main_styles';
-import coffeeAndCodeSVG07 from '../imgs/coffee_and_code_image_07.jpg'
+import { Section, SectionHeader, NAVIGATION_HEIGHT, secondary } from '../styles/main_styles';
 
 export default class Contact extends Component {
   render() {
     return (
       <>
-        <Section height = '100vh'>
+        <Section height = '100vh' theme ={secondary} color ='true'>
         <SectionHeader>{this.props.title}</SectionHeader>
-          <SectionImage
-            backgroundImage = { `url(${ coffeeAndCodeSVG07 })` }
-            opacity = { 0.25 }
-            position = 'center'
-          />
         </Section>     
       </>
     );
