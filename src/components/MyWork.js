@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { Section, SectionHeader } from '../styles/main_styles';
+import { Section, 
+  SectionHeader, 
+  tertiary, 
+  GREY_COLOR, 
+  SectionContent,
+  ClipBox, 
+} from '../styles/main_styles';
 import styled from 'styled-components';
 import {Flex} from '../ui_kit/Flex';
 
@@ -11,25 +17,16 @@ polygon(
   0 100% /* left bottom */
 )
 `;
-
-const ClipBox = styled(Flex) `
-  background-color:#000;
-  height:60px;
-  clip-path:polygon(
-  0 0, /* left top */
-  100% 100%, /* right top */ 
-  100% 100%, /* right bottom */
-  0 100% /* left bottom */
-)
-`; 
-
+ 
 export default class MyWork extends Component {
   render() {
     return (
       <>
         <ClipBox />
-        <Section height = '100vh' >
+        <Section height = '100vh' theme ={tertiary} >
+        <SectionContent>
         <SectionHeader>{this.props.title}</SectionHeader>
+        </SectionContent>
         </Section>
       </>
     );

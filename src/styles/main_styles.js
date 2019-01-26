@@ -28,6 +28,7 @@ export const PRIMARY_COLOR = 'rgb(51,80,117)';
 export const WHITE_COLOR = '#FFF';
 const DARK_COLOR_TRANSPARENT = '#00000090';
 const DARK_COLOR = '#000000';
+export const GREY_COLOR = '#666';
 const FOOTER_HEIGHT = '40px';
 const DEFAULT_FONT_WEIGHT = 200;
 
@@ -37,6 +38,7 @@ export const Navbar = styled(Flex) `
     position:fixed;
     width:100vw;
     z-index: 5;
+    background-color: ${ props=> props.backgroundColor };
 `;
 export const NavbarItems = styled(Flex) `
     justify-content:space-between;
@@ -74,7 +76,7 @@ export const Section = styled(Flex) `
 `;
 
 export const SectionContent = styled(Flex) `
-    padding:0 48px;
+    padding:0 36px;
     flex-direction:column;
 `;
 
@@ -82,7 +84,7 @@ export const SectionContent = styled(Flex) `
 export const SectionImage = styled(Flex) `
     height:100%;
     width:100vw;
-    position:absolute;
+    position:fixed;
     background-image: ${ props => props.backgroundImage?props.backgroundImage:null };
     background-size: ${ props => props.backgroundImage?'cover':null };
     background-repeat: ${ props => props.backgroundImage?'no-repeat':null };
@@ -92,12 +94,28 @@ export const SectionImage = styled(Flex) `
 
 //  Creates the main header title for our Sections 
 export const SectionHeader = styled(Flex) `
-    font-weight:${DEFAULT_FONT_WEIGHT};
+    font-weight:${ props => props.fontWeight?props.fontWeight:DEFAULT_FONT_WEIGHT };
+    padding: 16px 0 0;
     height:auto;
     width:100%;
     z-index:2;
     font-size:${ props => props.fontSize };
     position:relative;
+`;
+
+// Creates a container that clips part of the background
+//  allowing for the illusion of an angled background
+export const ClipBox = styled(Flex) `
+  background-color:${GREY_COLOR};
+  top:1px;
+  position:relative;
+  height:60px;
+  clip-path:polygon(
+  0 0, /* left top */
+  100% 99%, /* right top */ 
+  100% 100%, /* right bottom */
+  0 100% /* left bottom */
+)
 `;
 
 // Creates a wrapper for styling purposes for our
@@ -152,12 +170,16 @@ export const secondary = {
     main: WHITE_COLOR,
 };
 
+export const tertiary = {
+    main: GREY_COLOR,
+}
+
 // Creates a Footer Container
 export const FooterContainer = styled(Flex) `
     width:100vw;
     bottom:0;
     height: ${ FOOTER_HEIGHT };
-    background-color: ${ PRIMARY_COLOR };
+    background-color: ${ DARK_COLOR };
 `;
 
 // Styling for the footer items in the container
