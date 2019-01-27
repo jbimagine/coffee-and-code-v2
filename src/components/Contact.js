@@ -3,7 +3,6 @@ import {
   Section, 
   SectionContent,
   SectionHeader, 
-  NAVIGATION_HEIGHT, 
   secondary,
   MainContent,
   SecondaryContent,

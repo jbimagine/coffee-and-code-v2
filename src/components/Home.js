@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Flex } from '../ui_kit/Flex';
 import styled from 'styled-components';
 import { 
   Section, 

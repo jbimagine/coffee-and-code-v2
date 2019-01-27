@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Flex } from '../ui_kit/Flex';
 import { Image } from '../ui_kit/Image';
 import { css } from 'styled-components';
-import React, { Component } from 'react';
+import React from 'react';
 
 
 // Set the queries for the different media sizes
