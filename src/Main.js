@@ -74,7 +74,7 @@ export default class Main extends Component {
                 title='Work that Inspires!'
             />
             <Contact
-                title='Drop Me Line!'
+                title='Drop Me A Line!'
             />
             <Footer/>
         </>
