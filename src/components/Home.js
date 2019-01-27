@@ -7,6 +7,8 @@ import {
   SectionImage, 
   SectionHeader,
   SectionContent,
+  media,
+  BorderBox,
 } from '../styles/main_styles';
 import coffeeAndCodeSVG11 from '../imgs/coffee_and_code_image_11.jpg'
 
@@ -16,20 +18,12 @@ const HomeContent = styled(SectionContent) `
   bottom:10vh;
   position:fixed;
   width:75vw;
-`;
 
-const ContentContainer = styled(Flex) `
-  font-size:28px;
-  border:1px solid #FFF;
-  border-radius:2px;
-  width:140px;
-  padding:16px;
-`;
-
-const Content = styled(Flex) `
-  justify-content:center;
-  width:100%;
-  text-align:center;
+  ${ media.phone `
+  font-size:48px;
+  line-height:48px;
+  width:80vw;
+`}
 `;
 
 export default class Home extends Component {
@@ -40,9 +34,7 @@ export default class Home extends Component {
           <SectionHeader>{this.props.title}</SectionHeader>
           <SectionImage backgroundImage = { `url(${ coffeeAndCodeSVG11 })`} position = 'bottom'/>  
           <HomeContent><p>A Cup of Coffee = Code<sup>2</sup></p>
-          <ContentContainer>
-          <Content> Learn More</Content>
-          </ContentContainer>
+          <BorderBox boxItem='Learn More'/>
           </HomeContent> 
           
         </Section>

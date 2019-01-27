@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { Flex } from '../ui_kit/Flex';
 import { Image } from '../ui_kit/Image';
 import { css } from 'styled-components';
+import React, { Component } from 'react';
+
 
 // Set the queries for the different media sizes
 export const sizes = {
@@ -26,7 +28,7 @@ export const media = Object.keys(sizes).reduce((acc, label) => {
 export const NAVIGATION_HEIGHT = 80;
 export const PRIMARY_COLOR = 'rgb(51,80,117)';
 export const WHITE_COLOR = '#FFF';
-const DARK_COLOR_TRANSPARENT = '#00000090';
+const DARK_COLOR_TRANSPARENT = '#00000099';
 const DARK_COLOR = '#000000';
 export const GREY_COLOR = '#666';
 const FOOTER_HEIGHT = '40px';
@@ -43,7 +45,7 @@ export const Navbar = styled(Flex) `
 export const NavbarItems = styled(Flex) `
     justify-content:space-between;
     width:100%;
-    padding:0 16px;
+    padding:0 32px;
     z-index:5;
 `;
 
@@ -92,15 +94,44 @@ export const SectionImage = styled(Flex) `
     opacity:${ props => props.opacity };
 `;
 
-//  Creates the main header title for our Sections 
+// Creates the main header title for our Sections 
 export const SectionHeader = styled(Flex) `
-    font-weight:${ props => props.fontWeight?props.fontWeight:DEFAULT_FONT_WEIGHT };
-    padding: 24px 0 0;
+    font-weight:${ props => props.fontWeight?props.fontWeight:400 };
+    padding: 24px 0;
     height:auto;
     width:100%;
     z-index:2;
     font-size:${ props => props.fontSize };
     position:relative;
+    font-size:72px;
+  ${media.phone `
+    font-size:48px;
+  `}
+`;
+
+export const MainContent = styled(Flex) `
+    font-weight:200;
+    padding: 0 0 24px;
+    font-size:48px;
+
+    ${ media.phone `
+    font-size:24px;
+    line-height:36px;
+    `}
+`;
+
+export const SecondaryContent = styled(MainContent) `
+line-height:${ props => props.lineHeight?props.lineHeight: '48px' };
+font-size: ${ props => props.fontSize?props.fontSize:'32px' };
+
+&:last-child {
+  padding:0 0 24px;
+}
+
+${ media.phone`
+    font-size:16px;
+    line-height: 28px;
+    `}
 `;
 
 // Creates a container that clips part of the background
@@ -109,7 +140,7 @@ export const ClipBox = styled(Flex) `
   background-color:${GREY_COLOR};
   top:1px;
   position:relative;
-  height:${NAVIGATION_HEIGHT}px;
+  height:40px;
   clip-path:polygon(
   0 0, /* left top */
   100% 99%, /* right top */ 
@@ -133,7 +164,7 @@ export const MenuIcon = styled(Image) `
 `;
 
 // Container for all of the menu items in the navigatation
-export const MenuItemsContainer = styled(Flex) `
+export const MenuContainer = styled(Flex) `
     flex-direction:column;
     justify-content:center;
     align-items:center;
@@ -147,14 +178,26 @@ export const MenuItemsContainer = styled(Flex) `
     background-color ${DARK_COLOR_TRANSPARENT};
 `;
 
-// Contains each individual menu item
-export const MenuItems = styled.h2 `
-    height:20%;
-    font-weight:${DEFAULT_FONT_WEIGHT};
-    width:40%;
-    display:flex;
+export const MenuItemsContainer = styled(Flex) `
+    height:100%;
+    width:100%;
     justify-content:center;
     align-items:center;
+`;
+
+export const MenuModal = styled(Flex) `
+    width:80%;
+    height:80%;
+    background-color:${DARK_COLOR_TRANSPARENT};
+    flex-direction:column;
+    border-radius:15px;
+`;
+
+// Contains each individual menu item
+export const MenuItems = styled(Flex) `
+    font-weight:${DEFAULT_FONT_WEIGHT};
+    font-size:24px;
+    cursor:pointer;
 `;
 
 // Here we differentiate between our main sites color
@@ -189,3 +232,30 @@ export const FooterItems = styled(Flex) `
     justify-content:space-between;
     align-items:center;
 `;
+
+const BorderBoxContainer = styled(Flex) `
+  font-size:28px;
+  border:${ props => props.border?props.border:'1px solid #FFF' };
+  border-radius:5px;
+  width:${ props => props.width?props.width:'140px' };
+  padding:16px;
+  margin-bottom:24px;
+
+  ${ media.phone `
+  padding:8px;
+  font-size:20px;
+`}
+`;
+
+const BorderBoxItem = styled(Flex) `
+  justify-content:center;
+  width:100%;
+  text-align:center;
+  cursor:pointer;
+`;
+
+export const BorderBox = (props) => {
+   return <BorderBoxContainer border = { props.border } width = { props.width }>
+          <BorderBoxItem> {props.boxItem} </BorderBoxItem>
+          </BorderBoxContainer>
+}

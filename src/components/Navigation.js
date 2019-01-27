@@ -1,5 +1,15 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarItems, MenuItems, MenuIconContainer, MenuItemsContainer, Title, MenuIcon } from '../styles/main_styles';
+import { 
+  Navbar,
+  NavbarItems, 
+  MenuItems, 
+  MenuIconContainer, 
+  MenuContainer, 
+  Title, 
+  MenuIcon,
+  MenuItemsContainer,
+  MenuModal,
+ } from '../styles/main_styles';
 import closeIconSVG from '../imgs/close_icon.svg';
 import menuIconSVG from '../imgs/menu_icon.svg';
 
@@ -20,13 +30,17 @@ export default class Navigation extends Component {
            </MenuIconContainer>
            </NavbarItems>
           { 
-            this.props.isMenuOpen&&<MenuItemsContainer>
+            this.props.isMenuOpen&&<MenuContainer>
+            <MenuModal>
            {
               this.props.sectionHeaders.map((section, index) => 
+                <MenuItemsContainer>
                 <MenuItems key={ index }>{ section.name }</MenuItems>
+                </MenuItemsContainer>
               )
             }
-           </MenuItemsContainer>
+            </MenuModal>
+           </MenuContainer>
            }
        </Navbar>
       </>
