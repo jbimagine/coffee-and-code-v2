@@ -26,7 +26,7 @@ export default class About extends Component {
         <Section color='true' theme={secondary} height={ `calc(100% - ${NAVIGATION_HEIGHT}px)`} clipPath='none'>
         <SectionContent>
           <SectionHeader>
-            Front End. <br /> Design. <br/> Development. 
+            { this.props.title }
           </SectionHeader>
           <AboutContentContainer>
           <MainContent>

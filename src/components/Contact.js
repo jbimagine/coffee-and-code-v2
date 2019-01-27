@@ -17,7 +17,7 @@ export default class Contact extends Component {
         <Section height = '100%' theme ={secondary} color='true' clipPath='true'>
           <SectionContent>
             <SectionHeader>
-                Drop Me A Line!
+                { this.props.title }
             </SectionHeader>
           <BorderBox border='1px solid #000000' boxItem={`Let's Chat`}/>
           <MainContent>

@@ -34,8 +34,8 @@ export default class Navigation extends Component {
             <MenuModal>
            {
               this.props.sectionHeaders.map((section, index) => 
-                <MenuItemsContainer>
-                <MenuItems key={ index }>{ section.name }</MenuItems>
+                <MenuItemsContainer key={ index } >
+                <MenuItems>{ section.name }</MenuItems>
                 </MenuItemsContainer>
               )
             }
