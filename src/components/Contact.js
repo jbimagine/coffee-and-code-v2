@@ -19,7 +19,7 @@ export default class Contact extends Component {
             <SectionHeader>
                 { this.props.title }
             </SectionHeader>
-          <BorderBox border='1px solid #000000' boxItem={`Let's Chat`}/>
+          <BorderBox border='1px solid #000000' boxText={`Let's Chat`}/>
           <MainContent>
           Want to discuss your project?  Or just want to chat?  Send me a message!
           </MainContent>
@@ -27,8 +27,8 @@ export default class Contact extends Component {
             Want to know more about me?  Feel free to check out my Github
             and Linkedin pages!!
           </SecondaryContent>
-            <BorderBox width = 'auto' border='1px solid #000000' boxItem={ 'Github' }/>
-            <BorderBox width = 'auto' border='1px solid #000000' boxItem={ 'Linkedin' }/>
+            <BorderBox width = 'auto' border='1px solid #000000' boxText={ 'Github' }/>
+            <BorderBox width = 'auto' border='1px solid #000000' boxText={ 'Linkedin' }/>
           </SectionContent>
         </Section>     
       </>

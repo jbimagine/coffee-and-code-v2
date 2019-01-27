@@ -34,7 +34,7 @@ export default class Home extends Component {
           <SectionHeader>{this.props.title}</SectionHeader>
           <SectionImage backgroundImage = { `url(${ coffeeAndCodeSVG11 })`} position = 'bottom'/>  
           <HomeContent><p>A Cup of Coffee = Code<sup>2</sup></p>
-          <BorderBox boxItem='Learn More'/>
+          <BorderBox boxText='Learn More'/>
           </HomeContent> 
           
         </Section>

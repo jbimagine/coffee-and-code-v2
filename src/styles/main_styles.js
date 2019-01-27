@@ -256,6 +256,6 @@ const BorderBoxItem = styled(Flex) `
 
 export const BorderBox = (props) => {
    return <BorderBoxContainer border = { props.border } width = { props.width }>
-          <BorderBoxItem> {props.boxItem} </BorderBoxItem>
+          <BorderBoxItem> {props.boxText} </BorderBoxItem>
           </BorderBoxContainer>
 }
