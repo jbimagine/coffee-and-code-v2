@@ -13,6 +13,7 @@ export const sizes = {
     phoneSmall: 400,
 };
 
+// Set up media queries
 export const media = Object.keys(sizes).reduce((acc, label) => {
     acc[label] = (...args) => css`
       @media (max-width: ${sizes[label] / 16}em) {
@@ -23,7 +24,7 @@ export const media = Object.keys(sizes).reduce((acc, label) => {
     return acc
   }, {})
 
-// Global variables for  our repeating 
+// Global variables for our repeating 
 // css values
 export const NAVIGATION_HEIGHT = 80;
 export const PRIMARY_COLOR = 'rgb(51,80,117)';
@@ -42,6 +43,8 @@ export const Navbar = styled(Flex) `
     z-index: 5;
     background-color: ${ props=> props.backgroundColor };
 `;
+
+// Holds each individual navbar item
 export const NavbarItems = styled(Flex) `
     justify-content:space-between;
     width:100%;
@@ -58,6 +61,8 @@ export const Title = styled.h1 `
     align-items:center;
 `;
 
+// Masks content in the div so that you can achieve
+// angled content
 const CLIP_PATH_DEFAULT = `polygon(
     0 0, /* left top */
     100% 0, /* right top */ 
@@ -77,6 +82,7 @@ export const Section = styled(Flex) `
     clip-path: ${ props => props.clipPath?props.clipPath: CLIP_PATH_DEFAULT};
 `;
 
+// Container for section content
 export const SectionContent = styled(Flex) `
     padding:24px 36px;    
     flex-direction:column;
@@ -109,6 +115,8 @@ export const SectionHeader = styled(Flex) `
   `}
 `;
 
+// Use inside of Section Content for the main content 
+// of the section
 export const MainContent = styled(Flex) `
     font-weight:200;
     padding: 0 0 24px;
@@ -120,6 +128,8 @@ export const MainContent = styled(Flex) `
     `}
 `;
 
+// Use inside of Section Content for the secondary content 
+// of the section
 export const SecondaryContent = styled(MainContent) `
 line-height:${ props => props.lineHeight?props.lineHeight: '48px' };
 font-size: ${ props => props.fontSize?props.fontSize:'32px' };
@@ -163,7 +173,7 @@ export const MenuIcon = styled(Image) `
     z-index:10;
 `;
 
-// Container for all of the menu items in the navigatation
+// Container for all of the menu items in the navigation
 export const MenuContainer = styled(Flex) `
     flex-direction:column;
     justify-content:center;
@@ -178,6 +188,8 @@ export const MenuContainer = styled(Flex) `
     background-color ${DARK_COLOR_TRANSPARENT};
 `;
 
+// Container specifically to help with placements of each
+// menu item
 export const MenuItemsContainer = styled(Flex) `
     height:100%;
     width:100%;
@@ -185,6 +197,8 @@ export const MenuItemsContainer = styled(Flex) `
     align-items:center;
 `;
 
+// Adds another layer to the background
+// to increase visibility
 export const MenuModal = styled(Flex) `
     width:80%;
     height:80%;
@@ -213,6 +227,7 @@ export const secondary = {
     main: WHITE_COLOR,
 };
 
+// Set our tertiary color
 export const tertiary = {
     main: GREY_COLOR,
 }
@@ -233,6 +248,7 @@ export const FooterItems = styled(Flex) `
     align-items:center;
 `;
 
+// Creates a simple box with a border around it
 const BorderBoxContainer = styled(Flex) `
   font-size:28px;
   border:${ props => props.border?props.border:'1px solid #FFF' };
@@ -247,6 +263,7 @@ const BorderBoxContainer = styled(Flex) `
 `}
 `;
 
+// Styling for each individual box item
 const BorderBoxItem = styled(Flex) `
   justify-content:center;
   width:100%;
@@ -254,6 +271,7 @@ const BorderBoxItem = styled(Flex) `
   cursor:pointer;
 `;
 
+// Resusable component for Box with a border
 export const BorderBox = (props) => {
    return <BorderBoxContainer border = { props.border } width = { props.width }>
           <BorderBoxItem> {props.boxText} </BorderBoxItem>
