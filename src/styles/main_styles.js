@@ -259,7 +259,7 @@ const BorderBoxContainer = styled(Flex) `
 
   ${ media.phone `
   padding:8px;
-  font-size:20px;
+  font-size:14px;
 `}
 `;
 
