@@ -67,14 +67,9 @@ export default class Main extends Component {
                 isScrollHeight100vh = { this.state.isScrollHeight100vh }
             />
             <Home/>
-            <About
-            />
-            <MyWork
-                title = { 'My Work' }
-            />
-            <Contact
-                title = { ' Contact' }
-            />
+            <About/>
+            <MyWork/>
+            <Contact/>
             <Footer/>
         </>
         );
