@@ -18,7 +18,7 @@ export default class Navigation extends Component {
   render() {
     return (
       <>
-       <Navbar backgroundColor={this.props.isScrollHeight100vh&&'#000'}>
+       <Navbar backgroundColor={this.props.isNavBackgroundVisible&&'#000'}>
            <NavbarItems>
            <Title>Coffee & Code</Title>
            <MenuIconContainer>

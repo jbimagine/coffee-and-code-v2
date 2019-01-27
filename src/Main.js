@@ -28,9 +28,10 @@ export default class Main extends Component {
                 key:'contact',
             },
         ],
-        isScrollHeight100vh:false,
         width: window.innerWidth,
         height: window.innerHeight,
+        isNavBackgroundVisible:false,
+        scrollYPosition:0,
     }
 
     componentDidMount() {
@@ -38,6 +39,9 @@ export default class Main extends Component {
         // the height and width of the browser window
         window.addEventListener('load', this.handleResize);
         window.addEventListener('resize', this.handleResize);
+
+        // Add scroll event to the DOM
+        window.addEventListener('scroll', this.handleScroll, { passive: true })
       }
     
       componentWillUnmount() {
@@ -45,6 +49,9 @@ export default class Main extends Component {
         // of the browser window
         window.addEventListener('load', this.handleResize);
         window.removeEventListener('resize', this.handleResize );
+
+        // Remove scroll event from the DOM
+        window.removeEventListener('scroll', this.handleScroll)
       }
 
     handleMenuState = () => {
@@ -54,8 +61,19 @@ export default class Main extends Component {
     // Get the current window height and width 
     handleResize = () => {
         this.setState({ width: window.innerWidth, height: window.innerHeight });
-        console.log(this.state.height, this.state.width);
+        
     }
+
+    // Get the Y position of the window on scroll
+    handleScroll = () => {
+        let scrollYPosition = window.scrollY;
+        this.setState({ scrollYPosition });
+        if(this.state.widthscrollYPosition >= this.state.height - 100)
+            this.setState({ isNavBackgroundVisible: true });
+        else
+            this.setState({isNavBackgroundVisible:false});
+      }
+    
 
     render() {
         return (
@@ -65,6 +83,7 @@ export default class Main extends Component {
                 isMenuOpen = { this.state.isMenuOpen }
                 sectionHeaders = { this.state.sectionHeaders }
                 isScrollHeight100vh = { this.state.isScrollHeight100vh }
+                isNavBackgroundVisible = { this.state.isNavBackgroundVisible }
             />
             <Home/>
             <About
