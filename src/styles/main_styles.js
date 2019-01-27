@@ -66,8 +66,15 @@ export const Title = styled.h1 `
 const CLIP_PATH_DEFAULT = `polygon(
     0 0, /* left top */
     100% 0, /* right top */ 
-    100% calc(100% - 10vw), /* right bottom */
+    100% calc(100% - 5vh), /* right bottom */
     0 100% /* left bottom */
+  )`;
+ // Inverse Angle on content 
+const CLIP_PATH_INVERSE = `polygon(
+    0 0, /* left top */
+    100% 0, /* right top */ 
+    100% 100%, /* right bottom */
+    0 calc(100% - 5vh) /* left bottom */
   )`;
 
 // Creates a Section Container for each repeating section 
@@ -79,7 +86,8 @@ export const Section = styled(Flex) `
     background-color: ${ props => props.theme.main };
     position:relative;
     color: ${ props => props.color?DARK_COLOR:WHITE_COLOR };
-    clip-path: ${ props => props.clipPath?props.clipPath: CLIP_PATH_DEFAULT};
+    clip-path: ${ props => props.clipPath?CLIP_PATH_INVERSE: CLIP_PATH_DEFAULT};
+    padding-bottom: ${ props => props.clipPath?'60px':null };
 `;
 
 // Container for section content
@@ -142,21 +150,6 @@ ${ media.phone`
     font-size:16px;
     line-height: 28px;
     `}
-`;
-
-// Creates a container that clips part of the background
-//  allowing for the illusion of an angled background
-export const ClipBox = styled(Flex) `
-  background-color:${GREY_COLOR};
-  top:1px;
-  position:relative;
-  height:40px;
-  clip-path:polygon(
-  0 0, /* left top */
-  100% 99%, /* right top */ 
-  100% 100%, /* right bottom */
-  0 100% /* left bottom */
-)
 `;
 
 // Creates a wrapper for styling purposes for our

@@ -6,7 +6,8 @@ import {
   secondary, 
   SectionHeader,
   SectionContent, 
-  NAVIGATION_HEIGHT, 
+  NAVIGATION_HEIGHT,
+  GREY_COLOR, 
   MainContent,
   SecondaryContent 
 } from '../styles/main_styles';
@@ -23,7 +24,8 @@ export default class About extends Component {
   render() {
     return (
       <>
-        <Section color='true' theme={secondary} height={ `calc(100% - ${NAVIGATION_HEIGHT}px)`} clipPath='none'>
+      <div style ={{backgroundColor:GREY_COLOR, height:'100%'}}>
+        <Section color='true' theme={secondary} height={ `calc(100% - ${NAVIGATION_HEIGHT}px)`} clipPath='true'>
         <SectionContent>
           <SectionHeader>
             { this.props.title }
@@ -42,6 +44,7 @@ export default class About extends Component {
           </AboutContentContainer>
         </SectionContent>
         </Section>     
+      </div>
       </>
     );
   }

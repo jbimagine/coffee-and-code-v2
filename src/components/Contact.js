@@ -13,7 +13,7 @@ export default class Contact extends Component {
   render() {
     return (
       <>
-        <Section height = '100%' theme ={secondary} color='true' clipPath='true'>
+        <Section height = '100%' theme ={secondary} color='true'>
           <SectionContent>
             <SectionHeader>
                 { this.props.title }
