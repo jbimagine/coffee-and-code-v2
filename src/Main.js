@@ -68,7 +68,8 @@ export default class Main extends Component {
     handleScroll = () => {
         let scrollYPosition = window.scrollY;
         this.setState({ scrollYPosition });
-        if(this.state.widthscrollYPosition >= this.state.height - 100)
+
+        if(this.state.scrollYPosition >= this.state.height - 100)
             this.setState({ isNavBackgroundVisible: true });
         else
             this.setState({isNavBackgroundVisible:false});
