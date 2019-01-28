@@ -10,7 +10,27 @@ import {
  } from '../styles/main_styles';
 
 export default class Contact extends Component {
+
+
+  state = {
+    contact : [
+      {
+        name:'Github',
+        link:'https://github.com/jbimagine',
+      },
+      {
+        name:'Linkedin',
+        link:'https://www.linkedin.com/in/joebatesimagine/',
+      },
+      {
+        name:'Resume',
+        link:'',
+      },
+    ]
+  }
+
   render() {
+    const { contact }=this.state;
     return (
       <>
         <Section height = '100%' theme ={secondary} color='true'>
@@ -23,11 +43,14 @@ export default class Contact extends Component {
           Want to discuss your project?  Or just want to chat?  Send me a message!
           </MainContent>
           <SecondaryContent>
-            Want to know more about me?  Feel free to check out my Github
-            and Linkedin pages!!
+            Want to know more about me?  Feel free to check out my Github, Resume and/or
+            Linkedin!!
           </SecondaryContent>
-            <BorderBox width = 'auto' border='1px solid #000000' boxText={ 'Github' }/>
-            <BorderBox width = 'auto' border='1px solid #000000' boxText={ 'Linkedin' }/>
+            {
+              contact.map(( value, index ) => 
+                <BorderBox key ={ index } width = 'auto' border='1px solid #000000' boxText={ value.name } boxLink={value.link} />
+              )
+            }
           </SectionContent>
         </Section>     
       </>

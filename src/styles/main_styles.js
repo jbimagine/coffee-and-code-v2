@@ -267,6 +267,6 @@ const BorderBoxItem = styled(Flex) `
 // Resusable component for Box with a border
 export const BorderBox = (props) => {
    return <BorderBoxContainer border = { props.border } width = { props.width }>
-          <BorderBoxItem> {props.boxText} </BorderBoxItem>
+          <BorderBoxItem> <a target="_blank"  href ={ props.boxLink }>{props.boxText}</a> </BorderBoxItem>
           </BorderBoxContainer>
 }
